@@ -2,6 +2,8 @@
 
 ## Install Python, PIP, Virtualenv, etc:
 
+If you are doing this on the EECS server machines we have assigned to you, all of this is already installed for you.
+
 - [OSX Users](http://docs.python-guide.org/en/latest/starting/install/osx/)
 - [Windows Users](http://docs.python-guide.org/en/latest/starting/install/win/)
 - [Linux Users](http://docs.python-guide.org/en/latest/starting/install/linux/)
