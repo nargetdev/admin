@@ -15,7 +15,7 @@ you will be building in this course.
 * [Deliverables](#deliverables)
 * [Final Words](#final-words)
 
-Changes to this spec will be announced on CTools and visible on [GitHub](https://github.com/EECS485-Fall2014/admin/blob/master/pa1.md).
+Changes to this spec will be announced on CTools and visible on [GitHub](https://github.com/EECS485-Fall2014/admin/blob/master/pa1/pa1.md).
 
 ## Part 1 (0 Points): Log in to Your Dev. Machine
 This is a group assignment. You should already have registered your GitHub username and joined a group via this 
