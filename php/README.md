@@ -43,11 +43,9 @@ Start by editing html/index.php and then html/templates/templates/
 * conf/
  * Apache Config Directory
  * EDIT THIS
- * Go to all the TODOs and make the appropriate changes
+ * Go to all the TODOs and make the appropriate changes (also of these can be handled by setup.sh, so you don't need to worry about it)
 
-* html/
- * Your code here for PA1
-
+* html/ 
 * run/
  * An apache folder that you need. Don't mess with it.
 
@@ -67,4 +65,4 @@ Start by editing html/index.php and then html/templates/templates/
 
 * setup.sh
  * Run this script with your group name and desired port number to setup apache
- * Example: `bash setup.sh group1 2520`
+ * Example: `bash setup.sh mattman GROUPNAME 4801 PORTNUMBER1 4802 PORTNUMBER2`
