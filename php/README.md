@@ -6,7 +6,7 @@
 
 2) `cd ../GROUPNAME`
 
-3) `git clone git@github.com:EECS485/admin.git`
+3) `git clone git@github.com:EECS485-Fall2014/admin.git`
 
 4) `chown -R UNIQNAME:GROUPNAME admin`
 
