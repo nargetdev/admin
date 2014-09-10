@@ -70,7 +70,7 @@ username. For each person you should also maintain a password, a first name, a l
 and an email address. Each person may create/update/destroy as many albums that he or she 
 owns as he or she would like. Each album has a unique id, a title, a date created, a date last 
 updated, and an owner's username. Each album may have zero or more photos. Within the context of a particular 
-album, a photo has a sequence number and a caption. For each photo, you will need to generate a hash as a unique picid. Each picture will also have a unique url. The same photo can be in two separate albums BUT there will be essentially two copies of this photo on the server. When users upload a picture, we upload it regardless of whether this picture is identical to a previously uploaded picture, and then we will keep both on the server. Although these pictures look the same, actually their upload time is different so in some sense we see them as different pictures, and thus these two pictures will have different picids and urls. 
+album, a photo has a sequence number and a caption. For each photo, you will need to generate a hash as a unique picid. Each photo will also have a unique url. The same photo can be in two separate albums BUT there will be essentially two copies of this photo on the server. When users upload a photo, we upload it regardless of whether this photo is identical to a previously uploaded photo, and then we will keep both on the server. Although these photos look the same, actually their upload time is different so in some sense we see them as different photos, and thus these two photos will have different picids and urls. 
 
 An initial relational schema for the data you will need is as follows (primary key is bolded):
 
