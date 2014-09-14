@@ -71,12 +71,54 @@ INSERT INTO Photo (picid, url, format, date)
 VALUES('world_WashingtonDC','http://eecs485-05.eecs.umich.edu:5745/static/world_WashingtonDC.jpg','jpg','2012-01-05');
 
 
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('space_EagleNebula', 'http://eecs485-05.eecs.umich.edu:5745/static/space_EagleNebula.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('space_GalaxyCollision', 'http://eecs485-05.eecs.umich.edu:5745/static/space_GalaxyCollision.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('space_HelixNebula', 'http://eecs485-05.eecs.umich.edu:5745/static/space_HelixNebula', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('space_MilkyWay', 'http://eecs485-05.eecs.umich.edu:5745/static/space_MilkyWay.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('space_OrionNebula', 'http://eecs485-05.eecs.umich.edu:5745/static/space_OrionNebula.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s1', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s1.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s2', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s2.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s3', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s3.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s4', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s4.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s5', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s5.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s6', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s6.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s7', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s7.jpg', 'jpg', '2012-5-1')
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s8', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s8.jpg', 'jpg', '2012-5-1')
 
 
-
-
-
-
-
-
+-- CREATE TABLE Contain
+-- (
+--     albumid integer,
+--     picid char(40),
+--     caption char(255),
+--     sequencenum integer,
+--     PRIMARY KEY(albumid, picid),
+--     FOREIGN KEY(albumid) REFERENCES Album(albumid),
+--     FOREIGN KEY(picid) REFERENCES Photo(picid)
+-- );
 
