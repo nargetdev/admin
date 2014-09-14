@@ -251,6 +251,7 @@ they are not included elsewhere. Be sure to manage the `created` date for new al
 
     op: "add"
     username: "spacejunkie"
+	title: "nicealbum"
 
 Clicking [Edit] button directs a user to `/album/edit?id=albumid`.
 
