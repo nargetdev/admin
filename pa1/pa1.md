@@ -151,11 +151,7 @@ data can be inserted without errors, and test data are rejected if constraints a
 For part 3b, the script will see if the data are populated by querying them.
 
 We will run your .sql files with our own database. Therefore, no update will be made in your 
-databases.
-
-**Please do not modify the files in your git repository or deployment after the project is due!** The graders will 
-look at the last commit to your repository before the due date. Also note that the deployed version of your app 
-cannot have modifications after the due date. *We reserve the right to take away points from your group in either case.*
+databases when we grade your part 3b.
 
 ## Part 4 (60 Points): Building a Photo Album
 In this part we will start working on our database-backed website. You will learn how to use 
@@ -246,8 +242,7 @@ the primary key value of album table in the database. For example, an HTTP reque
     albumid: 2
 
 If the value of `op` is `add`, the additional variable `title` and `username` should be provided together with appropriate
-values entered by the user. Note that when you delete an album, you should also delete pictures in that album as long as
-they are not included elsewhere. Be sure to manage the `created` date for new albums. In order to add an album, an HTTP request to `POST /albums/edit` would have a body like:
+values entered by the user. Be sure to manage the `created` date for new albums. In order to add an album, an HTTP request to `POST /albums/edit` would have a body like:
 
     op: "add"
     username: "spacejunkie"
@@ -324,7 +319,7 @@ In the `README.md` at the root of your repository please provide the following d
 
 * Group Name (if you have one)
 * List `User Name (uniqname): "agreed upon" contributions`.
-* Details about how and if you deviated from this spec - avoid if possible.
+* Any other comments about your site design or implementation.
 * Extra details about how to clone and run your code - simple as possible.
 * Anything else you want us to know, like how many late days you took.
 * The formatting is not critical, we just need the information.
@@ -345,9 +340,11 @@ Extra:
   I took 2 late days.
 ```
 
-As mentioned above, **please do not modify your code after the due date - either on the repo or the server**, or else we
-will assume your submission is late. We then can assess late days or take off points.
-
+**Please do not modify the files in your git repository or deployment after the project is due!** The graders will 
+look at the last commit to your repository before the due date. Also note that the deployed version of your app 
+cannot have modifications after the due date. We will use the last
+modification time to determine when the assignment was completed, and
+will charge you late days accordingly. 
 
 # Final Words
 
