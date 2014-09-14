@@ -31,18 +31,6 @@ VALUES('football_s3','http://eecs485-05.eecs.umich.edu:5745/static/football_s3.j
 INSERT INTO Photo (picid, url, format, date) 
 VALUES('football_s4','http://eecs485-05.eecs.umich.edu:5745/static/football_s4.jpg','jpg','2012-01-05');
 
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(1,'football_s1', 'caption', 0);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(1,'football_s2', 'caption', 1);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(1,'football_s3', 'caption', 2);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(1,'football_s4', 'caption', 3);
-
 INSERT INTO Photo (picid, url, format, date) 
 VALUES('world_EiffelTower','http://eecs485-05.eecs.umich.edu:5745/static/world_EiffelTower.jpg','jpg','2012-01-05');
 
@@ -82,44 +70,6 @@ VALUES('world_tokyo','http://eecs485-05.eecs.umich.edu:5745/static/world_tokyo.j
 INSERT INTO Photo (picid, url, format, date) 
 VALUES('world_WashingtonDC','http://eecs485-05.eecs.umich.edu:5745/static/world_WashingtonDC.jpg','jpg','2012-01-05');
 
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_EiffelTower', 'caption', 0);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_firenze', 'caption', 1);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_GreatWall', 'caption', 2);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_Isfahan', 'caption', 3);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_Istanbul', 'caption', 4);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_Persepolis', 'caption', 5);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_Reykjavik', 'caption', 6);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_Seoul', 'caption', 7);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_Stonehenge', 'caption', 8);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_TajMahal', 'caption', 9);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_TelAviv', 'caption', 10);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_tokyo', 'caption', 11);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES(2,'world_WashingtonDC', 'caption', 12);
 
 INSERT INTO Photo (picid, url, format, date)
 VALUES ('space_EagleNebula', 'http://eecs485-05.eecs.umich.edu:5745/static/space_EagleNebula.jpg', 'jpg', '2012-5-1');
@@ -199,6 +149,7 @@ VALUES (0, 'sports_s7', 'caption', 6);
 
 INSERT INTO Contain (albumid, picid, caption, sequencenum)
 VALUES (0, 'sports_s8', 'caption', 7);
+
 
 
 
