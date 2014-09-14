@@ -1,6 +1,7 @@
 CREATE TABLE User
 (
     username char(20),
+    firstname char(20),
     lastname char(20),
     password char(20),
     email char(40),
