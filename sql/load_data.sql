@@ -21,6 +21,57 @@ VALUES('Cool Space Shots','2014-09-14', '2014-09-14','spacejunkie');
 
 
 
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s1', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s1.jpg', 'jpg', '2012-5-1');
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s2', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s2.jpg', 'jpg', '2012-5-1');
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s3', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s3.jpg', 'jpg', '2012-5-1');
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s4', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s4.jpg', 'jpg', '2012-5-1');
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s5', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s5.jpg', 'jpg', '2012-5-1');
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s6', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s6.jpg', 'jpg', '2012-5-1');
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s7', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s7.jpg', 'jpg', '2012-5-1');
+
+INSERT INTO Photo (picid, url, format, date)
+VALUES ('sports_s8', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s8.jpg', 'jpg', '2012-5-1');
+
+INSERT INTO Contain (albumid, picid, caption, sequencenum)
+VALUES (1, 'sports_s1', 'caption', 1);
+
+INSERT INTO Contain (albumid, picid, caption, sequencenum)
+VALUES (1, 'sports_s2', 'caption', 2);
+
+INSERT INTO Contain (albumid, picid, caption, sequencenum)
+VALUES (1, 'sports_s3', 'caption', 3);
+
+INSERT INTO Contain (albumid, picid, caption, sequencenum)
+VALUES (1, 'sports_s4', 'caption', 4);
+
+INSERT INTO Contain (albumid, picid, caption, sequencenum)
+VALUES (1, 'sports_s5', 'caption', 5);
+
+INSERT INTO Contain (albumid, picid, caption, sequencenum)
+VALUES (1, 'sports_s6', 'caption', 6);
+
+INSERT INTO Contain (albumid, picid, caption, sequencenum)
+VALUES (1, 'sports_s7', 'caption', 7);
+
+INSERT INTO Contain (albumid, picid, caption, sequencenum)
+VALUES (1, 'sports_s8', 'caption', 8);
+
+
+
+
 INSERT INTO Photo (picid, url, format, date) 
 VALUES('football_s1','http://eecs485-05.eecs.umich.edu:5745/static/football_s1.jpg','jpg','2012-01-05');
 
@@ -158,52 +209,3 @@ VALUES (4, 'space_MilkyWay', 'caption', 4);
 INSERT INTO Contain (albumid, picid, caption, sequencenum)
 VALUES (4, 'space_OrionNebula', 'caption', 5);
 
-
-
-INSERT INTO Photo (picid, url, format, date)
-VALUES ('sports_s1', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s1.jpg', 'jpg', '2012-5-1');
-
-INSERT INTO Photo (picid, url, format, date)
-VALUES ('sports_s2', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s2.jpg', 'jpg', '2012-5-1');
-
-INSERT INTO Photo (picid, url, format, date)
-VALUES ('sports_s3', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s3.jpg', 'jpg', '2012-5-1');
-
-INSERT INTO Photo (picid, url, format, date)
-VALUES ('sports_s4', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s4.jpg', 'jpg', '2012-5-1');
-
-INSERT INTO Photo (picid, url, format, date)
-VALUES ('sports_s5', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s5.jpg', 'jpg', '2012-5-1');
-
-INSERT INTO Photo (picid, url, format, date)
-VALUES ('sports_s6', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s6.jpg', 'jpg', '2012-5-1');
-
-INSERT INTO Photo (picid, url, format, date)
-VALUES ('sports_s7', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s7.jpg', 'jpg', '2012-5-1');
-
-INSERT INTO Photo (picid, url, format, date)
-VALUES ('sports_s8', 'http://eecs485-05.eecs.umich.edu:5745/static/sports_s8.jpg', 'jpg', '2012-5-1');
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES (1, 'sports_s1', 'caption', 1);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES (1, 'sports_s2', 'caption', 2);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES (1, 'sports_s3', 'caption', 3);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES (1, 'sports_s4', 'caption', 4);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES (1, 'sports_s5', 'caption', 5);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES (1, 'sports_s6', 'caption', 6);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES (1, 'sports_s7', 'caption', 7);
-
-INSERT INTO Contain (albumid, picid, caption, sequencenum)
-VALUES (1, 'sports_s8', 'caption', 8);
