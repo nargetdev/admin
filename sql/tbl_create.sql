@@ -8,7 +8,6 @@ CREATE TABLE User
     PRIMARY KEY(username)
 );
 
-
 CREATE TABLE Album
 (
     albumid integer,
@@ -36,6 +35,7 @@ CREATE TABLE Contain
     caption varchar(255),
     sequencenum integer,
     PRIMARY KEY(albumid, picid),
-    FOREIGN KEY(albumid) REFERENCES Album(albumid),
+    FOREIGN KEY(albumid) REFERENCES Album(albumid) ON DELETE CASCADE,
     FOREIGN KEY(picid) REFERENCES Photo(picid)
+    -- need a way to delete contains entry if ablum is deleted
 );
