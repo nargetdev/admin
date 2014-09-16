@@ -1,8 +1,10 @@
 {* Smarty *}
 {extends 'base.tpl'}
 {block name='body'}
-<h1>ALBUMS</h1>
+<h1>ALBUM EDIT</h1>
 <p class="important">
- Welcome! {$user} {$output}
+ Welcome to edit!
+ {$output}
 </p>
+
 {/block}

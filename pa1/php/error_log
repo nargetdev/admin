@@ -1,0 +1,4 @@
+[Thu Sep 11 18:10:19.716912 2014] [auth_digest:notice] [pid 25652] AH01757: generating secret for digest authentication ...
+[Thu Sep 11 18:10:19.718422 2014] [lbmethod_heartbeat:notice] [pid 25652] AH02282: No slotmem from mod_heartmonitor
+[Thu Sep 11 18:10:19.770856 2014] [mpm_prefork:notice] [pid 25652] AH00163: Apache/2.4.10 (Fedora) PHP/5.5.16 configured -- resuming normal operations
+[Thu Sep 11 18:10:19.770932 2014] [core:notice] [pid 25652] AH00094: Command line: 'httpd -f /var/www/html/group45/admin/pa1/php/conf/httpd.conf'
