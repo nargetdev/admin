@@ -10,7 +10,7 @@ CREATE TABLE User
 
 CREATE TABLE Album
 (
-    albumid integer,
+    albumid integer NOT NULL AUTO_INCREMENT,
     title varchar(50),
     created date,
     lastupdated date,
