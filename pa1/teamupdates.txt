@@ -1,0 +1,33 @@
+Hello guys.  I figured this might be a convenient way to communicate for the 
+time being.  Check it occasionally for updates on what we're each upto.
+
+If we wanted to get fancy you could use tmux to split your terminal and keep a 
+buffer watching this file and we could effectively have live chat  ;D
+
+Does this work?
+-Nate
+
+============================================================================
+
+Yeah this works for now Nate. Just make sure to add timestamps and your name
+to these comments so we have a better idea of who is doing what.  
+
+/*Ignore this for now
+Also Nate,
+I think since you made this file we can't modify it and upload it using FTP
+unless you do something.
+
+Look on Piazza, there's something about changing the owner of the file on the
+eecs485 machine to allow all 3 of us to be able to make changes to the file
+that you made.
+*/
+
+-Akshay: 9/16 - 4:42pm
+
+============================================================================
+
+I added some code at the end of the POST request part for albums/edit. Seems
+to keep it on the same page when you add or delete an album!
+
+-Akshay: 9/16 - 4:54pm
+
