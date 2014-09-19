@@ -3,6 +3,7 @@
 {block name='body'}
 <h1>ALBUMS</h1>
 <p class="important">
- Welcome! {$user} {$output}
+ Welcome! {$user} <br>
+ {$output}
 </p>
 {/block}

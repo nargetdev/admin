@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-17 20:13:18
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-18 05:05:56
          compiled from "/var/www/html/group45/admin/pa1/php/html/templates/templates/albums.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30324386454164a076a7d19-71310014%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'feb3c3cbad83a1e02c9f07d569cfaa723106db03' => 
     array (
       0 => '/var/www/html/group45/admin/pa1/php/html/templates/templates/albums.tpl',
-      1 => 1410984500,
+      1 => 1411016668,
       2 => 'file',
     ),
     'b9f00fd8aad5e04f11433b329550efeb58c0ba8d' => 
@@ -46,6 +46,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <h1>ALBUMS</h1>
 <p class="important">
  Welcome! <?php echo $_smarty_tpl->tpl_vars['user']->value;?>
+ <br>
  <?php echo $_smarty_tpl->tpl_vars['output']->value;?>
 
 </p>

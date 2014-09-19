@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-17 20:25:54
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-18 05:05:59
          compiled from "/var/www/html/group45/admin/pa1/php/html/templates/templates/albumedit.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:301194312541717bf8e79a6-05298726%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0a71c2336d1b4dc306d9dca3042e26b156c1d69c' => 
     array (
       0 => '/var/www/html/group45/admin/pa1/php/html/templates/templates/albumedit.tpl',
-      1 => 1410984496,
+      1 => 1411016661,
       2 => 'file',
     ),
     'b9f00fd8aad5e04f11433b329550efeb58c0ba8d' => 
@@ -46,7 +46,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <h1>ALBUM EDIT</h1>
 <p class="important">
  Welcome to edit! <?php echo $_smarty_tpl->tpl_vars['user']->value;?>
-
+ <br>
  <?php echo $_smarty_tpl->tpl_vars['output']->value;?>
 
 </p>
