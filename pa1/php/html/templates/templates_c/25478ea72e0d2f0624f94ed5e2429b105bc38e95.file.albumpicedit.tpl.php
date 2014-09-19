@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-18 20:50:43
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 18:03:49
          compiled from "/var/www/html/group45/admin/pa1/php/html/templates/templates/albumpicedit.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:105662500541b45a39728e1-20911196%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b9f00fd8aad5e04f11433b329550efeb58c0ba8d' => 
     array (
       0 => '/var/www/html/group45/admin/pa1/php/html/templates/templates/base.tpl',
-      1 => 1410812586,
+      1 => 1411149191,
       2 => 'file',
     ),
   ),
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_541b45a39f48c6_97644488',
   'variables' => 
   array (
     'title' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_541b45a39f48c6_97644488',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_541b45a39f48c6_97644488')) {function content_541b45a39f48c6_97644488($_smarty_tpl) {?>
 
@@ -41,6 +41,28 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </title>
 </head>
 <body>
+
+<div class="changelog" align="left">
+	<p>
+		<strong>Changelog:</strong><br>
+		-Delete works on /album/edit now<br>
+		-Also, you may have noticed that this message now shows up everywhere.<br>
+		-Need to make sure that delete deletes from Contain, and Photo.
+		-Need to make sure uploading pictures adds the correct sequence number, adds it to Photo, and to Contain.
+
+		<br>
+		Toggle your status from Active (RED) to Inactive (GREEN) in "templates/base.tpl"<br>
+		<!-- Add updates here! -->
+	</p>
+</div>
+<div class="status">
+	<p class="inactive">Nate</p>
+	<p class="active">Akshay</p>
+	<p class="inactive">Sid</p>
+</div>
+
+
+
   <div class="center">
     
 <h1>ALBUM EDIT</h1>

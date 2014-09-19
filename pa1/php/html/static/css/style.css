@@ -1,4 +1,55 @@
+
+body {
+	margin: 0;
+}
+
+.changelog > p { margin: 0; }
+
 .center {
     margin:0 auto;
-    max-width: 500px;
+    /*max-width: 500px;*/
+    width:100%;
+}
+
+
+.wrapper {
+	width:100%;
+	margin:0;
+	float: left;
+}
+
+.imgwrap {
+	background-color: red;
+	width:70%;
+
+}
+
+.albumview > img {
+	width:100%;
+}
+
+.changelog {
+	padding: 2px;
+	background:#aaa;
+	width:100%;
+	margin:0;
+}
+
+.status {
+	margin: 0 auto;
+}
+
+.status > p{
+	width: 32%;
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.active {
+	background-color: #f55;
+}
+
+.inactive {
+	background-color: #5f5;
 }

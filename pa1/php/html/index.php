@@ -55,13 +55,29 @@
 
      // Notice how you can set variables here in the PHP that will get carried into the template files
 
-    //**NEED TO FINISH THIS CODE.
-
      $albumid = $_GET['albumid'];
      $picid = $_GET['picid'];
+     $output;
+     // Connectivity stuff
+      $user="group45"; 
+      $password="nas485"; 
+      $database="group45"; 
+      $con = mysql_connect('127.0.0.1',$user,$password) or die('Could not connect: ' . mysql_error());
+      mysql_select_db($database, $con);
 
-      $smarty->assign('picid', $picid);
 
+        $query2 = "SELECT * FROM Photo WHERE picid = '" . $picid . "';";
+        $result2 = mysql_query($query2, $con);
+
+
+        $picurl = mysql_result($result2, 0, 'url');
+        $picid = mysql_result($result2, 0, 'picid');
+
+        $output = "<img src='$picurl'/>";
+
+     $smarty->assign('picid', $picid);
+
+      $smarty->assign('output', $output);
 
      $smarty->display('pic.tpl');
    });
@@ -92,11 +108,12 @@
         $picid = mysql_result($result2, 0, 'picid');
 
         $output = $output . 
-              "<form action='/pic' method='get'>
-               <input type='image' src='$picurl' />  
+              "<p>$picid</p>
+              <form action='/pic' method='get'>
+               <input type='submit' value='View Picture'/>  
+               <img src='$picurl'/>
                <input type='hidden' name='picid' value='$picid'/>
-               <input type='hidden' name='albumid'value='$albumid' />
-               </form> <br>"; //Use input type so you can click on it.
+               </form> <br>"; //If the user clicks on a photo they see the /pic view.
       } 
 
       $smarty->assign('output', $output);
@@ -174,7 +191,6 @@
       $output = $output."<tr> <td> <b> Album </b> </td> 
                               <td> <b> Edit </b> </td> 
                               <td> <b> Delete </b> </td> </tr>"; 
-      //<form action='edit' method='POST'>"; Used to have the form on the outside.
 
       for ($i = 0; $i < $num ; ++$i) { 
         
@@ -183,14 +199,13 @@
         $output = $output."<tr><td> $title </td>"
 
         //Edit Album
-        //This should go to "ALBUM/EDIT not ALBUMS/EDIT"
         ."<td>
           <form action='/album/edit' method='GET'> 
           <input type='hidden' name='id' value = '$albumid'/>
           <input type='submit' value='Edit' />
           </form>
         </td>"
-        //Delete Album
+        //Post method to delete Album
         ."
         <td> <form action='edit' method='POST'>
              <input type='submit' value='Delete'/> 
@@ -284,9 +299,11 @@
       $num = mysql_num_rows($result);
 
       //Allows user to select a photo to upload
-      $output = $output . "<form method = 'post' action='/album/edit'>
-            <input type='file' name='pic' accept='image/*''>
-            <input type='submit' value='Upload Photo'>
+      $output = $output . "<form method='post' action='/album/edit' enctype='multipart/form-data' >
+            <label for='file'>Filename:</label>
+            <input type='file' name='file' id='file' accept='image/*' />
+            <input type='hidden' name='op' value='add' />
+            <input type='submit' name='submit' value='Upload Photo' />
             </form> <br>";
 
 
@@ -305,10 +322,10 @@
 				 <input type='hidden' name='picid' value = '$picid'/>
 				 <input type='hidden' name='albumid' value = '$albumid'/> 
          </form>
-         <img src='$picurl'/>
+         <div class=\"albumview\">
+           <img src='$picurl'/>
+         </div>
          <br>";
-				//mark change
-				//mo change
 
       } 
 
@@ -323,8 +340,14 @@
       $picid = $_POST['picid'];
       $albumid = $_POST['albumid'];
       $op = $_POST['op'];
+      $filename = $_FILES["file"]["name"];
 
-      echo "Got here --> Post request for album/edit - Trying to delete $picid";
+
+      echo "picid: $picid <br> 
+            albumid: $albumid <br>
+            operator: $op <br>
+            filename: $filename <br>
+            filetype: $filetype <br>";
 
       $user="group45"; 
       $password="nas485"; 
@@ -334,13 +357,16 @@
 
       if(strcmp($op, "add") == 0)
       {
-        
+          // $query = "INSERT INTO Photo (parameters) VALUES (values)";
       }
 
       if(strcmp($op, "delete") == 0)
       {
-        $query = "DELETE from Contain where picid = '$picid';";
-         mysql_query($query, $con);
+        // $query = "DELETE from Contain where picid = '$picid';";
+        // mysql_query($query, $con);
+
+        // $query = "DELETE FROM Photo WHERE picid= '$picid';";
+        // mysql_query($query, $con);
       }
 
 
@@ -350,9 +376,9 @@
       
       // This code sends the user back to the get request part of the website.
       // For some reason we needed 2 of these for it to actually work.
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        die;
+        // header('Location: ' . $_SERVER['HTTP_REFERER']);
+        // header('Location: ' . $_SERVER['HTTP_REFERER']);
+        // die;
   });
 
 

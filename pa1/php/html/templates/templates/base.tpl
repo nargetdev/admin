@@ -9,6 +9,27 @@
     <title>{$title}</title>
 </head>
 <body>
+
+<div class="changelog" align="left">
+	<p>
+		<strong>Changelog:</strong><br>
+		-Delete works on /album/edit now<br>
+		-Also, you may have noticed that this message now shows up everywhere.<br>
+		-I added additional code for the album upload / delete pictures. I also commented out the query so that it does not actually delete files from the database anymore. <br>
+
+		<br>
+		Toggle your status from Active (RED) to Inactive (GREEN) in "templates/base.tpl"<br>
+		<!-- Add updates here! -->
+	</p>
+</div>
+<div class="status">
+	<p class="active">Nate</p>
+	<p class="active">Akshay</p>
+	<p class="inactive">Sid</p>
+</div>
+
+
+
   <div class="center">
     {block "body"}Default Body Text{/block}
   </div>
