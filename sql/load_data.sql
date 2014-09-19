@@ -186,7 +186,7 @@ INSERT INTO Photo (picid, url, format, date)
 VALUES ('space_GalaxyCollision', 'http://eecs485-05.eecs.umich.edu:5745/static/space_GalaxyCollision.jpg', 'jpg', '2012-5-1');
 
 INSERT INTO Photo (picid, url, format, date)
-VALUES ('space_HelixNebula', 'http://eecs485-05.eecs.umich.edu:5745/static/space_HelixNebula', 'jpg', '2012-5-1');
+VALUES ('space_HelixNebula', 'http://eecs485-05.eecs.umich.edu:5745/static/space_HelixNebula.jpg', 'jpg', '2012-5-1');
 
 INSERT INTO Photo (picid, url, format, date)
 VALUES ('space_MilkyWay', 'http://eecs485-05.eecs.umich.edu:5745/static/space_MilkyWay.jpg', 'jpg', '2012-5-1');

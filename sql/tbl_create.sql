@@ -16,7 +16,10 @@ CREATE TABLE Album
     lastupdated date,
     username varchar(20),
     PRIMARY KEY (albumid),
-    FOREIGN KEY (username) REFERENCES User(username)
+    FOREIGN KEY (username) REFERENCES User(username) ON DELETE CASCADE
+    --Need to add code in the index.php where if you delete an album, first delete
+    --all pictures in that album, then delete all contains for that relation,
+    --then delete the actual album from the album table.
 );
 
 CREATE TABLE Photo
@@ -36,6 +39,5 @@ CREATE TABLE Contain
     sequencenum integer,
     PRIMARY KEY(albumid, picid),
     FOREIGN KEY(albumid) REFERENCES Album(albumid) ON DELETE CASCADE,
-    FOREIGN KEY(picid) REFERENCES Photo(picid)
-    -- need a way to delete contains entry if ablum is deleted
+    FOREIGN KEY(picid) REFERENCES Photo(picid) ON DELETE CASCADE
 );
