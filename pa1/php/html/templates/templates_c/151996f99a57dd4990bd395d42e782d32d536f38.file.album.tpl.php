@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 18:03:06
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 23:00:03
          compiled from "/var/www/html/group45/admin/pa1/php/html/templates/templates/album.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:121468167354164a0b535689-28122481%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b9f00fd8aad5e04f11433b329550efeb58c0ba8d' => 
     array (
       0 => '/var/www/html/group45/admin/pa1/php/html/templates/templates/base.tpl',
-      1 => 1411149191,
+      1 => 1411166500,
       2 => 'file',
     ),
   ),
@@ -47,8 +47,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<strong>Changelog:</strong><br>
 		-Delete works on /album/edit now<br>
 		-Also, you may have noticed that this message now shows up everywhere.<br>
-		-Need to make sure that delete deletes from Contain, and Photo.
-		-Need to make sure uploading pictures adds the correct sequence number, adds it to Photo, and to Contain.
+		-I added additional code for the album upload / delete pictures. I also commented out the query so that it does not actually delete files from the database anymore. <br>
 
 		<br>
 		Toggle your status from Active (RED) to Inactive (GREEN) in "templates/base.tpl"<br>
@@ -56,9 +55,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	</p>
 </div>
 <div class="status">
-	<p class="inactive">Nate</p>
-	<p class="active">Akshay</p>
-	<p class="inactive">Sid</p>
+	<p class="active">Nate</p>
+	<p class="inactive">Akshay</p>
+	<p class="active">Sid</p>
 </div>
 
 

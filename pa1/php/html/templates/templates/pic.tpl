@@ -6,6 +6,9 @@
 <p class="important">
   Welcome {$picid}
 </p>
+<p>
+	{$nextbutton}
+</p>
 {$output}
 </div>
 {/block}

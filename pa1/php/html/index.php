@@ -51,12 +51,12 @@
       $smarty->display('index.tpl');
    });
 
-   $klein->respond('GET', '/pic\?[:picid]?', function ($request, $response, $service) use ($smarty) {
+   $klein->respond('GET', '/pic\?[:id]?', function ($request, $response, $service) use ($smarty) {
 
      // Notice how you can set variables here in the PHP that will get carried into the template files
 
      $albumid = $_GET['albumid'];
-     $picid = $_GET['picid'];
+     $picid = $_GET['id'];
      $output;
      // Connectivity stuff
       $user="group45"; 
@@ -72,12 +72,54 @@
 
         $picurl = mysql_result($result2, 0, 'url');
         $picid = mysql_result($result2, 0, 'picid');
+        
+
+      
+      //"SELECT * FROM Contain WHERE picid = '" . $picid . "' and sequencenum = ".$next .";";
+      $query = "SELECT * FROM Contain WHERE picid = '" . $picid . "';";
+      $result = mysql_query($query, $con);
+      $samealbumid = mysql_result($result, 0, 'albumid');
+      $sequencenum = mysql_result($result, 0, 'sequencenum');
+      $next = $sequencenum + 1;
+      $prev = $sequencenum - 1;
+      $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$next .";";
+      $result = mysql_query($query, $con);
+
+      
+      while(mysql_num_rows($result) == 0)
+      {
+        $next = $next + 1;
+        $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
+        "and sequencenum = ".$next ."';";
+        $result = mysql_query($query, $con);
+        echo "$next";
+      }
+      $nextpicid = mysql_result($result, 0, 'picid');
+
+      $query = "SELECT * FROM Photo WHERE picid = '" . $nextpicid . "';";
+      $result = mysql_query($query, $con);
+
+      $nextpicurl = mysql_result($result, 0, 'url');
+        $nextbutton = "
+              <form action='/pic' method='get'>
+               <input type='submit' value='Next'/>
+               <input type='hidden' name='id' value='$nextpicid'/>
+               </form> <br>"; //If the user clicks on a photo they see the next /pic view.
+
+        // $output = $output . 
+        //       "<p>$picid</p>
+        //       <form action='/pic' method='get'>
+        //        <input type='submit' value='Previous'/>  
+        //        <img src='$picurl'/>
+        //        <input type='hidden' name='id' value='$picid'/>
+        //        </form> <br>"; //If the user clicks on a photo they see the previous /pic view.
 
         $output = "<img src='$picurl'/>";
 
      $smarty->assign('picid', $picid);
 
       $smarty->assign('output', $output);
+      $smarty->assign('nextbutton', $nextbutton);
 
      $smarty->display('pic.tpl');
    });
@@ -112,7 +154,7 @@
               <form action='/pic' method='get'>
                <input type='submit' value='View Picture'/>  
                <img src='$picurl'/>
-               <input type='hidden' name='picid' value='$picid'/>
+               <input type='hidden' name='id' value='$picid'/>
                </form> <br>"; //If the user clicks on a photo they see the /pic view.
       } 
 

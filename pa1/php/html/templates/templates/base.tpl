@@ -24,8 +24,8 @@
 </div>
 <div class="status">
 	<p class="active">Nate</p>
-	<p class="active">Akshay</p>
-	<p class="inactive">Sid</p>
+	<p class="inactive">Akshay</p>
+	<p class="active">Sid</p>
 </div>
 
 
