@@ -302,10 +302,13 @@
         $output = $output . "<form method = 'post' action='/album/edit'>
          <input type='submit' value='Delete'>
          <input type='hidden' name='op' value='delete'  />
-         <input type='hidden' name='albumid' value = '$albumid'/> 
+				 <input type='hidden' name='picid' value = '$picid'/>
+				 <input type='hidden' name='albumid' value = '$albumid'/> 
          </form>
          <img src='$picurl'/>
          <br>";
+				//mark change
+				//mo change
 
       } 
 
@@ -317,16 +320,17 @@
   
   $klein->respond('POST', '/album/edit', function ($request, $response, $service) use ($smarty) {
 
-/*      $id = $_POST['albumid'];
-      $op = $_POST['op'];*/
+      $picid = $_POST['picid'];
+      $albumid = $_POST['albumid'];
+      $op = $_POST['op'];
 
-      echo "Got here --> Post request for album/edit";
+      echo "Got here --> Post request for album/edit - Trying to delete $picid";
 
-      /*$user="group45"; 
+      $user="group45"; 
       $password="nas485"; 
       $database="group45"; 
       $con = mysql_connect('127.0.0.1',$user,$password) or die('Could not connect: ' . mysql_error());
-      mysql_select_db($database, $con);*/
+      mysql_select_db($database, $con);
 
       if(strcmp($op, "add") == 0)
       {
@@ -335,19 +339,20 @@
 
       if(strcmp($op, "delete") == 0)
       {
-    
+        $query = "DELETE from Contain where picid = '$picid';";
+         mysql_query($query, $con);
       }
 
 
-     /* $smarty->assign('output', $output);
-      $smarty->assign('user', $username);
-      mysql_close(); */
+      $smarty->assign('output', $output);
+      $smarty->assign('albumid', $albumid);
+      mysql_close(); 
       
-      //This code sends the user back to the get request part of the website.
-      //For some reason we needed 2 of these for it to actually work.
-        // header('Location: ' . $_SERVER['HTTP_REFERER']);
-        // header('Location: ' . $_SERVER['HTTP_REFERER']);
-        // die;
+      // This code sends the user back to the get request part of the website.
+      // For some reason we needed 2 of these for it to actually work.
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        die;
   });
 
 
