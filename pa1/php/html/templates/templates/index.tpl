@@ -8,7 +8,9 @@
 <!-- <h1 style="background:#f22; text-align:center; padding:5px;">Sid is currently modifying files!</h1> -->
 <!-- <div style="background:#0f9; text-align:center; padding:5px;"><h1>Nobody is making changes right now, sftp is safe to use.</h1><p>(You can set a flag in templates/index.tpl)</p></div> -->
 
-<h1>INDEX</h1>
+<div class="centerme">
+	<h1>INDEX</h1>
+</div>
 <p class="center">
 	{$output}
 </p>

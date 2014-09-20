@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 22:41:44
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-20 20:04:41
          compiled from "/var/www/html/group45/admin/pa1/php/html/templates/templates/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:201412840754136001674ee2-24718481%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '67adbf8626fc68fd5a97974d66a0c3810b0a8190' => 
     array (
       0 => '/var/www/html/group45/admin/pa1/php/html/templates/templates/index.tpl',
-      1 => 1411142807,
+      1 => 1411243480,
       2 => 'file',
     ),
     'b9f00fd8aad5e04f11433b329550efeb58c0ba8d' => 
     array (
       0 => '/var/www/html/group45/admin/pa1/php/html/templates/templates/base.tpl',
-      1 => 1411166500,
+      1 => 1411224859,
       2 => 'file',
     ),
   ),
@@ -55,8 +55,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	</p>
 </div>
 <div class="status">
-	<p class="active">Nate</p>
-	<p class="inactive">Akshay</p>
+	<p class="inactive">Nate</p>
+	<p class="active">Akshay</p>
 	<p class="active">Sid</p>
 </div>
 
@@ -71,7 +71,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <!-- <h1 style="background:#f22; text-align:center; padding:5px;">Sid is currently modifying files!</h1> -->
 <!-- <div style="background:#0f9; text-align:center; padding:5px;"><h1>Nobody is making changes right now, sftp is safe to use.</h1><p>(You can set a flag in templates/index.tpl)</p></div> -->
 
-<h1>INDEX</h1>
+<div class="centerme">
+	<h1>INDEX</h1>
+</div>
 <p class="center">
 	<?php echo $_smarty_tpl->tpl_vars['output']->value;?>
 

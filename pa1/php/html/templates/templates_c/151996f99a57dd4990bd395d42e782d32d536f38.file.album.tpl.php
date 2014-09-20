@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 23:00:03
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-20 14:54:34
          compiled from "/var/www/html/group45/admin/pa1/php/html/templates/templates/album.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:121468167354164a0b535689-28122481%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b9f00fd8aad5e04f11433b329550efeb58c0ba8d' => 
     array (
       0 => '/var/www/html/group45/admin/pa1/php/html/templates/templates/base.tpl',
-      1 => 1411166500,
+      1 => 1411224859,
       2 => 'file',
     ),
   ),
@@ -55,8 +55,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	</p>
 </div>
 <div class="status">
-	<p class="active">Nate</p>
-	<p class="inactive">Akshay</p>
+	<p class="inactive">Nate</p>
+	<p class="active">Akshay</p>
 	<p class="active">Sid</p>
 </div>
 

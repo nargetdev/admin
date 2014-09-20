@@ -23,8 +23,8 @@
 	</p>
 </div>
 <div class="status">
-	<p class="active">Nate</p>
-	<p class="inactive">Akshay</p>
+	<p class="inactive">Nate</p>
+	<p class="active">Akshay</p>
 	<p class="active">Sid</p>
 </div>
 

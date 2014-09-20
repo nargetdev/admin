@@ -11,6 +11,13 @@ body {
     width:100%;
 }
 
+.center h1{
+	margin:0 auto;
+	color: orange;
+}
+.centerme {
+	margin: 0 auto;
+}
 
 .wrapper {
 	width:100%;

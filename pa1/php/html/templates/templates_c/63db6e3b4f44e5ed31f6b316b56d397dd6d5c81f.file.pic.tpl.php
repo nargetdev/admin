@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 23:52:59
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-20 17:45:04
          compiled from "/var/www/html/group45/admin/pa1/php/html/templates/templates/pic.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:64812968954164a0ee72c99-47289898%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '63db6e3b4f44e5ed31f6b316b56d397dd6d5c81f' => 
     array (
       0 => '/var/www/html/group45/admin/pa1/php/html/templates/templates/pic.tpl',
-      1 => 1411170767,
+      1 => 1411235057,
       2 => 'file',
     ),
     'b9f00fd8aad5e04f11433b329550efeb58c0ba8d' => 
     array (
       0 => '/var/www/html/group45/admin/pa1/php/html/templates/templates/base.tpl',
-      1 => 1411166500,
+      1 => 1411224859,
       2 => 'file',
     ),
   ),
@@ -55,8 +55,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	</p>
 </div>
 <div class="status">
-	<p class="active">Nate</p>
-	<p class="inactive">Akshay</p>
+	<p class="inactive">Nate</p>
+	<p class="active">Akshay</p>
 	<p class="active">Sid</p>
 </div>
 
@@ -67,15 +67,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class="wrapper">
 <h1>PIC</h1>
 <p class="important">
-  Welcome <?php echo $_smarty_tpl->tpl_vars['picid']->value;?>
-
-</p>
-<p>
-	<?php echo $_smarty_tpl->tpl_vars['nextbutton']->value;?>
-
+  Welcome
 </p>
 <p>
 	<?php echo $_smarty_tpl->tpl_vars['prevbutton']->value;?>
+ <?php echo $_smarty_tpl->tpl_vars['nextbutton']->value;?>
 
 </p>
 <?php echo $_smarty_tpl->tpl_vars['output']->value;?>

@@ -4,13 +4,10 @@
 <div class="wrapper">
 <h1>PIC</h1>
 <p class="important">
-  Welcome {$picid}
+  Welcome
 </p>
 <p>
-	{$nextbutton}
-</p>
-<p>
-	{$prevbutton}
+	{$prevbutton} {$nextbutton}
 </p>
 {$output}
 </div>
