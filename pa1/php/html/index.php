@@ -77,16 +77,21 @@
       
       //"SELECT * FROM Contain WHERE picid = '" . $picid . "' and sequencenum = ".$next .";";
       $query = "SELECT * FROM Contain WHERE picid = '" . $picid . "';";
+
       $result = mysql_query($query, $con);
       $samealbumid = mysql_result($result, 0, 'albumid');
       $sequencenum = mysql_result($result, 0, 'sequencenum');
+      $queryformax = "Select MAX(sequencenum) from Contain where albumid = ".$samealbumid.";";
+      $result = mysql_query($query, $con);
+      $maxcol = mysql_result($queryformax, 0, 'sequencenum');
+
       $next = $sequencenum + 1;
       $prev = $sequencenum - 1;
       $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$next .";";
       $nextresult = mysql_query($query, $con);
 
       
-      while(mysql_num_rows($result) == 0)
+      while(mysql_num_rows($nextresult) == 0 && $next < 2000)//should fix next
       {
         $next = $next + 1;
         $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
@@ -111,7 +116,7 @@
       $prevresult = mysql_query($query, $con);
 
       
-      while(mysql_num_rows($result) == 0 && $prev >= 0)
+      while(mysql_num_rows($prevresult) == 0 && $prev >= 0)
       {
         $prev = $prev - 1;
         $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
