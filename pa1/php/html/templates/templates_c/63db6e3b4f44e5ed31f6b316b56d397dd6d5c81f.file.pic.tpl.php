@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 23:12:04
+<?php /* Smarty version Smarty-3.1.14, created on 2014-09-19 23:52:59
          compiled from "/var/www/html/group45/admin/pa1/php/html/templates/templates/pic.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:64812968954164a0ee72c99-47289898%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '63db6e3b4f44e5ed31f6b316b56d397dd6d5c81f' => 
     array (
       0 => '/var/www/html/group45/admin/pa1/php/html/templates/templates/pic.tpl',
-      1 => 1411168310,
+      1 => 1411170767,
       2 => 'file',
     ),
     'b9f00fd8aad5e04f11433b329550efeb58c0ba8d' => 
@@ -72,6 +72,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </p>
 <p>
 	<?php echo $_smarty_tpl->tpl_vars['nextbutton']->value;?>
+
+</p>
+<p>
+	<?php echo $_smarty_tpl->tpl_vars['prevbutton']->value;?>
 
 </p>
 <?php echo $_smarty_tpl->tpl_vars['output']->value;?>

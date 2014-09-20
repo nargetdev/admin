@@ -9,6 +9,9 @@
 <p>
 	{$nextbutton}
 </p>
+<p>
+	{$prevbutton}
+</p>
 {$output}
 </div>
 {/block}

@@ -106,13 +106,28 @@
                <input type='hidden' name='id' value='$nextpicid'/>
                </form> <br>"; //If the user clicks on a photo they see the next /pic view.
 
-        // $output = $output . 
-        //       "<p>$picid</p>
-        //       <form action='/pic' method='get'>
-        //        <input type='submit' value='Previous'/>  
-        //        <img src='$picurl'/>
-        //        <input type='hidden' name='id' value='$picid'/>
-        //        </form> <br>"; //If the user clicks on a photo they see the previous /pic view.
+
+      $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$prev .";";
+      $result = mysql_query($query, $con);
+
+      
+      while(mysql_num_rows($result) == 0)
+      {
+        $prev = $prev - 1;
+        $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
+        "and sequencenum = ".$prev ."';";
+        $result = mysql_query($query, $con);
+      }
+      $prevpicid = mysql_result($result, 0, 'picid');
+      //echo "$prevpicid";
+      $query = "SELECT * FROM Photo WHERE picid = '" . $prevpicid . "';";
+      $result = mysql_query($query, $con);
+
+        $prevbutton = 
+              "<form action='/pic' method='get'>
+               <input type='submit' value='Previous'/> 
+               <input type='hidden' name='id' value='$prevpicid'/>
+               </form> <br>"; //If the user clicks on a photo they see the previous /pic view.
 
         $output = "<img src='$picurl'/>";
 
@@ -120,6 +135,7 @@
 
       $smarty->assign('output', $output);
       $smarty->assign('nextbutton', $nextbutton);
+      $smarty->assign('prevbutton', $prevbutton);
 
      $smarty->display('pic.tpl');
    });
