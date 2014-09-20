@@ -20,7 +20,7 @@
 
    /* Define routes here */
 
-   $klein->respond('GET', '/', function ($request, $response, $service) use ($smarty) {
+   $klein->respond('GET', '/', function ($request, $response, $service) use ($smarty) {/*{{{*/
 
       $user="group45"; 
       $password="nas485"; 
@@ -49,15 +49,15 @@
       $smarty->assign('output', $output);
 
       $smarty->display('index.tpl');
-   });
+   });/*}}} <--- This stuff is used for folding in Vim just ignore it.*/
 
-   $klein->respond('GET', '/pic\?[:id]?', function ($request, $response, $service) use ($smarty) {
+   $klein->respond('GET', '/pic\?[:id]?', function ($request, $response, $service) use ($smarty) {/*{{{*/
 
      // Notice how you can set variables here in the PHP that will get carried into the template files
 
-     $albumid = $_GET['albumid'];
      $picid = $_GET['id'];
      $output;
+
      // Connectivity stuff
       $user="group45"; 
       $password="nas485"; 
@@ -65,39 +65,37 @@
       $con = mysql_connect('127.0.0.1',$user,$password) or die('Could not connect: ' . mysql_error());
       mysql_select_db($database, $con);
 
-
-        $query2 = "SELECT * FROM Photo WHERE picid = '" . $picid . "';";
-        $result2 = mysql_query($query2, $con);
-
-
-        $picurl = mysql_result($result2, 0, 'url');
-        $picid = mysql_result($result2, 0, 'picid');
+      //Query to get the picture id
+      $query2 = "SELECT * FROM Photo WHERE picid = '" . $picid . "';";
+      $result2 = mysql_query($query2, $con);
+      $picurl = mysql_result($result2, 0, 'url');
+      $picid = mysql_result($result2, 0, 'picid');
         
-
-      
-      //"SELECT * FROM Contain WHERE picid = '" . $picid . "' and sequencenum = ".$next .";";
+      //Query to get the albumid and sequence number
       $query = "SELECT * FROM Contain WHERE picid = '" . $picid . "';";
-
       $result = mysql_query($query, $con);
       $samealbumid = mysql_result($result, 0, 'albumid');
       $sequencenum = mysql_result($result, 0, 'sequencenum');
+
+      //Query to get the maximum sequence number
       $queryformax = "Select MAX(sequencenum) from Contain where albumid = ".$samealbumid.";";
       $result = mysql_query($queryformax, $con);
-      $maxcol = mysql_result($result, 0, 'sequencenum');
+      $maxcol = mysql_fetch_row($result);
 
       $next = $sequencenum + 1;
       $prev = $sequencenum - 1;
+
       $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$next .";";
       $nextresult = mysql_query($query, $con);
 
-      
-      while(mysql_num_rows($nextresult) == 0 && $next < 1000)//should fix next
+      //Finds the next sequence number after the current photo's sequence number.
+      //This might necessarily be sequencenum + 1 if a particular photo got deleted.
+      while(mysql_num_rows($nextresult) == 0 && $next < $maxcol[0] + 1)//should fix next
       {
         $next = $next + 1;
         $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
         "' and sequencenum = '".$next ."';";
         $nextresult = mysql_query($query, $con);
-        echo "$next  ";
       }
       $nextpicid = mysql_result($nextresult, 0, 'picid');
 
@@ -115,7 +113,6 @@
       $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$prev .";";
       $prevresult = mysql_query($query, $con);
 
-      echo "Previous is: $prev";
       while(mysql_num_rows($prevresult) == 0 && $prev >= 0)
       {
         $prev = $prev - 1;
@@ -125,7 +122,6 @@
       }
 
       $prevpicid = mysql_result($prevresult, 0, 'picid');
-      //echo "$prevpicid";
       $query = "SELECT * FROM Photo WHERE picid = '" . $prevpicid . "';";
       $result = mysql_query($query, $con);
 
@@ -151,9 +147,9 @@
       }
 
      $smarty->display('pic.tpl');
-   });
+   });/*}}} <--- This stuff is used for folding in Vim just ignore it.*/
 
-   $klein->respond('GET', '/album\?[:id]?', function ($request, $response, $service) use ($smarty) {
+   $klein->respond('GET', '/album\?[:id]?', function ($request, $response, $service) use ($smarty) {/*{{{*/
 
       $albumid = $_GET['id'];
       $output;
@@ -184,15 +180,16 @@
                <input type='submit' value='View Picture'/>  
                <img src='$picurl'/>
                <input type='hidden' name='id' value='$picid'/>
+               <input type='hidden' name='something' value='ok' />
                </form> <br>"; //If the user clicks on a photo they see the /pic view.
       } 
 
       $smarty->assign('output', $output);
 
       $smarty->display('album.tpl');
-   });
+   });/*}}} <--- This stuff is used for folding in Vim just ignore it.*/
 
-   $klein->respond('GET', '/albums\?[:username]?', function ($request, $response, $service) use ($smarty) {
+   $klein->respond('GET', '/albums\?[:username]?', function ($request, $response, $service) use ($smarty) {/*{{{*/
 
       $username = $_GET['username'];
       $smarty->assign('user', $username);
@@ -236,14 +233,14 @@
       mysql_close(); 
 
       $smarty->display('albums.tpl');
-   });
+   });/*}}} <--- This stuff is used for folding in Vim just ignore it.*/
 
 
 
 //==================================================================================================================
 //Below is the Albums/Edit get and post requests.
 
- $klein->respond('GET', '/albums/edit\?[:username]?', function ($request, $response, $service) use ($smarty) {
+ $klein->respond('GET', '/albums/edit\?[:username]?', function ($request, $response, $service) use ($smarty) {/*{{{*/
 
       $username = $_GET['username'];
       $smarty->assign('user', $username);
@@ -305,16 +302,16 @@
 
        $smarty->display('albumedit.tpl');
        mysql_close(); 
-  });
+  });/*}}} <--- This stuff is used for folding in Vim just ignore it.*/
 
-  $klein->respond('POST', '/albums/edit', function ($request, $response, $service) use ($smarty) {
+  $klein->respond('POST', '/albums/edit', function ($request, $response, $service) use ($smarty) {/*{{{*/
 
       $username= $_POST['username'];
       $id = $_POST['albumid'];
       $op = $_POST['op'];
       $title = $_POST['title'];
 
-      echo "$username - $id - $title -$op<br>";
+     //echo "$username - $id - $title -$op<br>";
 
       $user="group45"; 
       $password="nas485"; 
@@ -331,8 +328,26 @@
 
       if(strcmp($op, "delete") == 0)
       {
-        $query = "DELETE from Album where albumid = $id;";
-         mysql_query($query, $con);
+
+        $query = "SELECT * FROM Contain WHERE albumid = $id;";
+        $result = mysql_query($query, $con);
+        $num = mysql_num_rows($result);
+
+
+        //Deletes all Photos in the given album.
+        for ($i = 0; $i < $num ; ++$i)
+        {
+          $picid = mysql_result($result, $i, "picid");
+          $query2 = "DELETE FROM Contain WHERE picid = '$picid';";
+          mysql_query($query2, $con);
+          $query2 = "DELETE FROM Photo WHERE picid = '$picid';";
+          mysql_query($query2, $con);
+        }
+
+        //Deletes the album from the database.
+        $query3 = "DELETE from Album where albumid = $id;";
+        echo "$query3";
+         mysql_query($query3, $con);
       }
 
 
@@ -342,11 +357,10 @@
       
       //This code sends the user back to the get request part of the website.
       //For some reason we needed 2 of these for it to actually work.
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        die;
-  });
-
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
+      die;
+  });/*}}} <--- This stuff is used for folding in Vim just ignore it.*/
 
 //==================================================================================================================
 //Below is the Album/Edit get and post request.
@@ -354,7 +368,7 @@
    //This is used to edit individual albums. User should upload new pictures here or delete pictures from an album.
    //**Still need to make the post request to add or delete pictures, just like we did for Albums.  
    //When you insert a picture, need to add it to Photo and also need to add the album/picure to Contain.
-   $klein->respond('GET', '/album/edit\?[:id]?', function ($request, $response, $service) use ($smarty) {
+   $klein->respond('GET', '/album/edit\?[:id]?', function ($request, $response, $service) use ($smarty) {/*{{{*/
 
       $albumid = $_GET['id'];
       $output;
@@ -403,10 +417,10 @@
       $smarty->assign('output', $output);
 
       $smarty->display('albumpicedit.tpl');
-   });
+   });/*}}} <--- This stuff is used for folding in Vim just ignore it.*/
 
   
-  $klein->respond('POST', '/album/edit', function ($request, $response, $service) use ($smarty) {
+  $klein->respond('POST', '/album/edit', function ($request, $response, $service) use ($smarty) {/*{{{*/
 
       $picid = $_POST['picid'];
       $albumid = $_POST['albumid'];
@@ -416,9 +430,8 @@
 
       echo "picid: $picid <br> 
             albumid: $albumid <br>
-            operator: $op <br>
-            filename: $filename <br>
-            filetype: $filetype <br>";
+            op: $op <br>
+            filename: $filename <br>";
 
       $user="group45"; 
       $password="nas485"; 
@@ -428,11 +441,29 @@
 
       if(strcmp($op, "add") == 0)
       {
-           $query = "INSERT INTO Photo (parameters) VALUES (values)";
+          //Need to create a hash for the picture using md5 microtime
+        //Then we need to insert the photo into the Photo table, Album table, and Contain table.
+        //Then we need to update the Album's last updated value.
+           // $query = "INSERT INTO Photo (parameters) VALUES (values)";
       }
 
       if(strcmp($op, "delete") == 0)
       {
+        //Gets the url of the photo and deletes the physical file.
+        $query = "SELECT * FROM Photo WHERE picid = '$picid';";
+        $result = mysql_query($query, $con);
+
+        $url = mysql_result($result, 0, 'url');
+        $extension = mysql_result($result, 0, 'format');
+
+        $path = "/static/pictures/" . $picid . "." . $extension;
+
+
+        echo $url . "<br>";
+        echo $path . "<br>";
+
+        unlink($path);
+
         $query = "DELETE from Contain where picid = '$picid';";
         mysql_query($query, $con);
 
@@ -447,10 +478,10 @@
       
       // This code sends the user back to the get request part of the website.
       // For some reason we needed 2 of these for it to actually work.
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        die;
-  });
+        // header('Location: ' . $_SERVER['HTTP_REFERER']);
+        // header('Location: ' . $_SERVER['HTTP_REFERER']);
+        // die;
+  });/*}}} <--- This stuff is used for folding in Vim just ignore it.*/
 
 
 

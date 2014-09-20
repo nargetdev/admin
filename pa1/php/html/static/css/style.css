@@ -18,6 +18,10 @@ body {
 	float: left;
 }
 
+.wrapper > h1 {
+	margin 0 auto;
+}
+
 .imgwrap {
 	background-color: red;
 	width:70%;
