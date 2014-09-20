@@ -82,19 +82,19 @@
       $sequencenum = mysql_result($result, 0, 'sequencenum');
       $next = $sequencenum + 1;
       $prev = $sequencenum - 1;
-      $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$next.";";
-      $result = mysql_query($query, $con);
+      $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$next .";";
+      $nextresult = mysql_query($query, $con);
 
       
       while(mysql_num_rows($result) == 0)
       {
         $next = $next + 1;
-        $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$next.";";
-        $result = mysql_query($query, $con);
-        //echo "$query";
+        $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
+        "' and sequencenum = '".$next ."';";
+        $nextresult = mysql_query($query, $con);
+        echo "$next";
       }
-
-      $nextpicid = mysql_result($result, 0, 'picid');
+      $nextpicid = mysql_result($nextresult, 0, 'picid');
 
       $query = "SELECT * FROM Photo WHERE picid = '" . $nextpicid . "';";
       $result = mysql_query($query, $con);
@@ -108,16 +108,18 @@
 
 
       $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$prev .";";
-      $result = mysql_query($query, $con);
+      $prevresult = mysql_query($query, $con);
 
       
-      // while(mysql_num_rows($result) == 0)
-      // {
-      //   $prev = $prev - 1;//echo $prev;
-      //   $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid ." and sequencenum = ".$prev .";";
-      //   $result = mysql_query($query, $con);
-      // }
-      $prevpicid = mysql_result($result, 0, 'picid');
+      while(mysql_num_rows($result) == 0 && $prev >= 0)
+      {
+        $prev = $prev - 1;
+        $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
+        "and sequencenum = ".$prev ."';";
+        $prevresult = mysql_query($query, $con);
+      }
+
+      $prevpicid = mysql_result($prevresult, 0, 'picid');
       //echo "$prevpicid";
       $query = "SELECT * FROM Photo WHERE picid = '" . $prevpicid . "';";
       $result = mysql_query($query, $con);
@@ -133,8 +135,15 @@
      $smarty->assign('picid', $picid);
 
       $smarty->assign('output', $output);
-      $smarty->assign('nextbutton', $nextbutton);
-      $smarty->assign('prevbutton', $prevbutton);
+      if(mysql_num_rows($nextresult) != 0)
+      {
+         $smarty->assign('nextbutton', $nextbutton);
+      }
+
+      if(mysql_num_rows($prevresult) != 0)
+      {
+          $smarty->assign('prevbutton', $prevbutton);
+      }
 
      $smarty->display('pic.tpl');
    });
@@ -414,16 +423,16 @@
 
       if(strcmp($op, "add") == 0)
       {
-           $query = "INSERT INTO Photo (parameters) VALUES (values)";
+          // $query = "INSERT INTO Photo (parameters) VALUES (values)";
       }
 
       if(strcmp($op, "delete") == 0)
       {
-        $query = "DELETE from Contain where picid = '$picid';";
-        mysql_query($query, $con);
+        // $query = "DELETE from Contain where picid = '$picid';";
+        // mysql_query($query, $con);
 
-        $query = "DELETE FROM Photo WHERE picid= '$picid';";
-        mysql_query($query, $con);
+        // $query = "DELETE FROM Photo WHERE picid= '$picid';";
+        // mysql_query($query, $con);
       }
 
 
@@ -433,9 +442,9 @@
       
       // This code sends the user back to the get request part of the website.
       // For some reason we needed 2 of these for it to actually work.
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        die;
+        // header('Location: ' . $_SERVER['HTTP_REFERER']);
+        // header('Location: ' . $_SERVER['HTTP_REFERER']);
+        // die;
   });
 
 
