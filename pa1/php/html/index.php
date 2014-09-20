@@ -82,18 +82,18 @@
       $sequencenum = mysql_result($result, 0, 'sequencenum');
       $next = $sequencenum + 1;
       $prev = $sequencenum - 1;
-      $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$next .";";
+      $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$next.";";
       $result = mysql_query($query, $con);
 
       
       while(mysql_num_rows($result) == 0)
       {
         $next = $next + 1;
-        $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
-        "and sequencenum = ".$next ."';";
+        $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$next.";";
         $result = mysql_query($query, $con);
-        echo "$next";
+        //echo "$query";
       }
+
       $nextpicid = mysql_result($result, 0, 'picid');
 
       $query = "SELECT * FROM Photo WHERE picid = '" . $nextpicid . "';";
@@ -111,13 +111,12 @@
       $result = mysql_query($query, $con);
 
       
-      while(mysql_num_rows($result) == 0)
-      {
-        $prev = $prev - 1;echo $prev;
-        $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
-        "and sequencenum = ".$prev ."';";
-        $result = mysql_query($query, $con);
-      }
+      // while(mysql_num_rows($result) == 0)
+      // {
+      //   $prev = $prev - 1;//echo $prev;
+      //   $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid ." and sequencenum = ".$prev .";";
+      //   $result = mysql_query($query, $con);
+      // }
       $prevpicid = mysql_result($result, 0, 'picid');
       //echo "$prevpicid";
       $query = "SELECT * FROM Photo WHERE picid = '" . $prevpicid . "';";
@@ -415,7 +414,7 @@
 
       if(strcmp($op, "add") == 0)
       {
-          $query = "INSERT INTO Photo (parameters) VALUES (values)";
+           $query = "INSERT INTO Photo (parameters) VALUES (values)";
       }
 
       if(strcmp($op, "delete") == 0)
