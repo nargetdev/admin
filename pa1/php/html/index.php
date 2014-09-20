@@ -82,8 +82,8 @@
       $samealbumid = mysql_result($result, 0, 'albumid');
       $sequencenum = mysql_result($result, 0, 'sequencenum');
       $queryformax = "Select MAX(sequencenum) from Contain where albumid = ".$samealbumid.";";
-      $result = mysql_query($query, $con);
-      $maxcol = mysql_result($queryformax, 0, 'sequencenum');
+      $result = mysql_query($queryformax, $con);
+      $maxcol = mysql_result($result, 0, 'sequencenum');
 
       $next = $sequencenum + 1;
       $prev = $sequencenum - 1;
@@ -91,7 +91,7 @@
       $nextresult = mysql_query($query, $con);
 
       
-      while(mysql_num_rows($nextresult) == 0 && $next < 2000)//should fix next
+      while(mysql_num_rows($nextresult) == 0 && $next < $maxcol)//should fix next
       {
         $next = $next + 1;
         $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
@@ -428,16 +428,16 @@
 
       if(strcmp($op, "add") == 0)
       {
-          // $query = "INSERT INTO Photo (parameters) VALUES (values)";
+           $query = "INSERT INTO Photo (parameters) VALUES (values)";
       }
 
       if(strcmp($op, "delete") == 0)
       {
-        // $query = "DELETE from Contain where picid = '$picid';";
-        // mysql_query($query, $con);
+        $query = "DELETE from Contain where picid = '$picid';";
+        mysql_query($query, $con);
 
-        // $query = "DELETE FROM Photo WHERE picid= '$picid';";
-        // mysql_query($query, $con);
+        $query = "DELETE FROM Photo WHERE picid= '$picid';";
+        mysql_query($query, $con);
       }
 
 
@@ -447,9 +447,9 @@
       
       // This code sends the user back to the get request part of the website.
       // For some reason we needed 2 of these for it to actually work.
-        // header('Location: ' . $_SERVER['HTTP_REFERER']);
-        // header('Location: ' . $_SERVER['HTTP_REFERER']);
-        // die;
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        die;
   });
 
 
