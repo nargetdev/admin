@@ -113,7 +113,7 @@
       
       while(mysql_num_rows($result) == 0)
       {
-        $prev = $prev - 1;
+        $prev = $prev - 1;echo $prev;
         $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
         "and sequencenum = ".$prev ."';";
         $result = mysql_query($query, $con);
@@ -415,16 +415,16 @@
 
       if(strcmp($op, "add") == 0)
       {
-          // $query = "INSERT INTO Photo (parameters) VALUES (values)";
+          $query = "INSERT INTO Photo (parameters) VALUES (values)";
       }
 
       if(strcmp($op, "delete") == 0)
       {
-        // $query = "DELETE from Contain where picid = '$picid';";
-        // mysql_query($query, $con);
+        $query = "DELETE from Contain where picid = '$picid';";
+        mysql_query($query, $con);
 
-        // $query = "DELETE FROM Photo WHERE picid= '$picid';";
-        // mysql_query($query, $con);
+        $query = "DELETE FROM Photo WHERE picid= '$picid';";
+        mysql_query($query, $con);
       }
 
 
@@ -434,9 +434,9 @@
       
       // This code sends the user back to the get request part of the website.
       // For some reason we needed 2 of these for it to actually work.
-        // header('Location: ' . $_SERVER['HTTP_REFERER']);
-        // header('Location: ' . $_SERVER['HTTP_REFERER']);
-        // die;
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        die;
   });
 
 
