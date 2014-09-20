@@ -338,6 +338,15 @@
         for ($i = 0; $i < $num ; ++$i)
         {
           $picid = mysql_result($result, $i, "picid");
+
+          //Deletes the physical photo from the /static/pictures folder
+          $query2 = "SELECT * FROM Photo WHERE picid = '$picid';";
+          $result2 = mysql_query($query2, $con);
+          $extension = mysql_result($result2, 0, 'format');
+          $path = "./static/pictures/" . $picid . "." . $extension;
+          unlink($path);
+
+          //Deletes the Photo from the Contain and Photo tables in the DB.
           $query2 = "DELETE FROM Contain WHERE picid = '$picid';";
           mysql_query($query2, $con);
           $query2 = "DELETE FROM Photo WHERE picid = '$picid';";
@@ -426,12 +435,17 @@
       $albumid = $_POST['albumid'];
       $op = $_POST['op'];
       $filename = $_FILES["file"]["name"];
+      $filetype = $_FILES["file"]["type"];
+
+      $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
 
       echo "picid: $picid <br> 
             albumid: $albumid <br>
             op: $op <br>
-            filename: $filename <br>";
+            filename: $filename <br>
+            filetype: $filetype
+            ext: $ext";
 
       $user="group45"; 
       $password="nas485"; 
@@ -441,10 +455,17 @@
 
       if(strcmp($op, "add") == 0)
       {
-          //Need to create a hash for the picture using md5 microtime
+        //Need to create a hash for the picture using md5 microtime
         //Then we need to insert the photo into the Photo table, Album table, and Contain table.
         //Then we need to update the Album's last updated value.
+
+
+
            // $query = "INSERT INTO Photo (parameters) VALUES (values)";
+
+        //Updates the "lastupdated" field for the current album.
+        $query = "UPDATE Album SET lastupdated = curdate() WHERE albumid = $albumid;";
+        mysql_query($query, $con);
       }
 
       if(strcmp($op, "delete") == 0)
@@ -453,21 +474,21 @@
         $query = "SELECT * FROM Photo WHERE picid = '$picid';";
         $result = mysql_query($query, $con);
 
-        $url = mysql_result($result, 0, 'url');
         $extension = mysql_result($result, 0, 'format');
 
-        $path = "/static/pictures/" . $picid . "." . $extension;
-
-
-        echo $url . "<br>";
-        echo $path . "<br>";
+        $path = "./static/pictures/" . $picid . "." . $extension;
 
         unlink($path);
 
+        //Deletes the Photo from the database.
         $query = "DELETE from Contain where picid = '$picid';";
         mysql_query($query, $con);
 
         $query = "DELETE FROM Photo WHERE picid= '$picid';";
+        mysql_query($query, $con);
+
+        //Updates the "lastupdated" field for the current album.
+        $query = "UPDATE Album SET lastupdated = curdate() WHERE albumid = $albumid;";
         mysql_query($query, $con);
       }
 
