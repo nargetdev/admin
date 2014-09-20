@@ -91,13 +91,13 @@
       $nextresult = mysql_query($query, $con);
 
       
-      while(mysql_num_rows($nextresult) == 0 && $next < $maxcol)//should fix next
+      while(mysql_num_rows($nextresult) == 0 && $next < 1000)//should fix next
       {
         $next = $next + 1;
         $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
         "' and sequencenum = '".$next ."';";
         $nextresult = mysql_query($query, $con);
-        echo "$next";
+        echo "$next  ";
       }
       $nextpicid = mysql_result($nextresult, 0, 'picid');
 
@@ -115,12 +115,12 @@
       $query = "SELECT * FROM Contain WHERE albumid = " . $samealbumid . " and sequencenum = ".$prev .";";
       $prevresult = mysql_query($query, $con);
 
-      
+      echo "Previous is: $prev";
       while(mysql_num_rows($prevresult) == 0 && $prev >= 0)
       {
         $prev = $prev - 1;
         $query = "SELECT * FROM Contain WHERE albumid = '" . $samealbumid .
-        "and sequencenum = ".$prev ."';";
+        "' and sequencenum = '".$prev ."';";
         $prevresult = mysql_query($query, $con);
       }
 
